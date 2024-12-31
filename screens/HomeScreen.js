@@ -7,7 +7,7 @@ import { useWindowDimensions } from 'react-native';
 
 
 export default function Home() {
-    const { width, height } = Dimensions.get('window');
+    // const { width, height } = Dimensions.get('window');
 
   // const [fontsLoaded] = useFonts({
   //   Inter: require('./assets/fonts/Inter-Regular.ttf'),
@@ -17,6 +17,7 @@ export default function Home() {
   // if (!fontsLoaded) {
   //   return null;
   // }
+  const { width } = Dimensions.get('window');
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,7 +30,7 @@ export default function Home() {
         <View style={styles.header}>
            <Image
             source={require('./assets2/photo2.png')}
-            style={styles.image}
+            style={[styles.image1, { width: width - 0 }]}
            />
           <Text style={styles.title}>Welcome to HackLab</Text>
           <Text style={styles.subtitle}>Your Gateway to Ethical Hacking</Text>
@@ -92,15 +93,17 @@ const styles = StyleSheet.create({
   },
  
   content: {
-    // flex: 1,
+    flex: 1,
     paddingHorizontal: 24,
     paddingTop: 60,
     alignSelf: 'center', 
   },
-  image:{
+  image1:{
    width:360,
    height:200,
    marginLeft:-20,
+   marginBottom:20,
+   resizeMode: 'cover',
   },
   header: {
     marginBottom: 40,
